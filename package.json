@@ -1,0 +1,36 @@
+{
+    "name": "@goliathbot/extend-prototypes",
+    "description": "Extend various prototypes to make things a bit simpler.",
+    "version": "1.0.0",
+    "main": "./dist/index.js",
+    "module": "./dist/index.mjs",
+    "types": "./dist/types.d.ts",
+    "type": "commonjs",
+    "scripts": {
+        "build": "tsup",
+        "prebuild": "tsc --noEmit --skipLibCheck",
+        "postbuild": "cross-os copytypes"
+    },
+    "keywords": [],
+    "author": "nickalfonso",
+    "license": "MIT",
+    "devDependencies": {
+        "@types/node": "^22.10.1",
+        "cross-os": "^1.5.0",
+        "tsup": "^8.3.5",
+        "typescript": "^5.7.2"
+    },
+    "cross-os": {
+        "copytypes": {
+            "win32": "xcopy /i /Y .\\src\\types.d.ts .\\dist",
+            "darwin": "cp ./src/types.d.ts ./dist"
+        }
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/goliathbot/extend-prototypes.git"
+    },
+    "bugs": {
+        "url": "https://github.com/goliathbot/extend-prototypes/issues"
+    }
+}
